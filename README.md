@@ -6,13 +6,6 @@ edit the files `put.cpp` and `get.cpp` replace `TODO` items with ADIOS code
 ```
 $ make exercise
 ```
-
-# Solution
-The solution can be made by
-```
-make solution
-```
-
 # Testing
 ## Terminal 1
 ```
@@ -21,4 +14,10 @@ mpiexec -np 2 ./put test.bp FLEXPATH 10 1 1
 ## Terminal 2
 ```
 mpiexec -np 2 ./get test.bp FLEXPATH
+```
+
+# Solution
+The solution can be made by
+```
+make solution
 ```
