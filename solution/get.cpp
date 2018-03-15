@@ -78,6 +78,8 @@ ADIOS_READ_METHOD get_read_method(const char *method)
         return ADIOS_READ_METHOD_DATASPACES;
     if (strcmp(method, "FLEXPATH") == 0)
         return ADIOS_READ_METHOD_FLEXPATH;
+    if  (strcmp(method, "ICEE") == 0)
+        return ADIOS_READ_METHOD_ICEE;
     return static_cast<ADIOS_READ_METHOD>(-1);
 }
 
@@ -164,6 +166,7 @@ int main(int argc, char **argv)
 
     ADIOSStream *file = new ADIOSStream(fp, method);
 
+    int s = 0;
     while (adios_errno == 0)
     {
         int n_datasets_per = 0;
@@ -209,6 +212,9 @@ int main(int argc, char **argv)
 
         adios_release_step(fp);
         adios_advance_step(fp, 0, method == ADIOS_READ_METHOD_DATASPACES ? -1.0f : 0.0f);
+
+        cerr << g_rank << " get finished step " << s << endl;
+        s += 1;
     }
 
     adios_read_close(fp);
