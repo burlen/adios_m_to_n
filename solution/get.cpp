@@ -5,6 +5,7 @@
 #include <sstream>
 #include <string>
 #include <cstdlib>
+#include <cstring>
 
 #include "adios_tt.h"
 
